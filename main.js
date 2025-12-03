@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bgAudio = document.getElementById('bgAudio');
   const audioToggle = document.getElementById('audioToggle');
   const quoteStop = document.getElementById('quote-stop');
+  const themePicker = document.getElementById('themePicker');
   const themeToggle = document.getElementById('themeToggle');
   const heroTop = document.querySelector('.hero-top');
   const heroBottom = document.querySelector('.hero-bottom');
@@ -20,25 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Theming ---
   const THEME_KEY = 'chaos-theme';
   const THEMES = ['golden', 'galactic', 'neon', 'mystical'];
-  const THEME_LABELS = {
-    golden: 'Golden',
-    galactic: 'Galactic',
-    neon: 'Neon',
-    mystical: 'Mystical'
-  };
 
   function applyTheme(theme) {
     const nextTheme = THEMES.includes(theme) ? theme : THEMES[0];
     document.body.setAttribute('data-theme', nextTheme);
+    if (themePicker) {
+      themePicker.classList.remove('active');
+      themeToggle.setAttribute('aria-expanded', 'false');
+    }
     try {
       localStorage.setItem(THEME_KEY, nextTheme);
     } catch (e) {
       console.warn('Could not save theme to localStorage.');
-    }
-    if (themeToggle) {
-      const label = themeToggle.querySelector('.label');
-      themeToggle.setAttribute('aria-pressed', String(nextTheme !== THEMES[0]));
-      if (label) label.textContent = `Theme: ${THEME_LABELS[nextTheme] || nextTheme}`;
     }
   }
 
@@ -52,12 +46,27 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
     applyTheme(savedTheme || 'golden');
 
-    if (themeToggle) {
+    if (themePicker && themeToggle) {
+      // Toggle the tray
       themeToggle.addEventListener('click', () => {
-        const currentTheme = document.body.getAttribute('data-theme') || THEMES[0];
-        const currentIndex = THEMES.indexOf(currentTheme);
-        const nextIndex = (currentIndex + 1) % THEMES.length;
-        applyTheme(THEMES[nextIndex]);
+        const isActive = themePicker.classList.toggle('active');
+        themeToggle.setAttribute('aria-expanded', String(isActive));
+      });
+
+      // Handle theme selection from options
+      const themeOptions = themePicker.querySelectorAll('.theme-option');
+      themeOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          applyTheme(option.dataset.theme);
+        });
+      });
+
+      // Close tray if clicking outside
+      document.addEventListener('click', (e) => {
+        if (!themePicker.contains(e.target)) {
+          themePicker.classList.remove('active');
+          themeToggle.setAttribute('aria-expanded', 'false');
+        }
       });
     }
   }
@@ -72,21 +81,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function setupAudio() {
-    if (audioToggle && bgAudio) {
-      audioToggle.addEventListener('click', async () => {
-        try {
-          if (bgAudio.paused) {
-            await bgAudio.play();
-            updateAudioUI(true);
-          } else {
-            bgAudio.pause();
-            updateAudioUI(false);
-          }
-        } catch (err) {
-          console.warn('Audio playback was prevented by the browser.', err);
+    if (!audioToggle || !bgAudio) return;
+
+    // Autoplay is handled by `autoplay` and `muted` attributes in HTML.
+    // We just need to handle unmuting on first interaction.
+    const unmuteOnFirstInteraction = () => {
+      if (bgAudio.muted) {
+        bgAudio.muted = false;
+        updateAudioUI(!bgAudio.paused);
+      }
+      // Remove this listener so it only runs once.
+      document.removeEventListener('click', unmuteOnFirstInteraction);
+      document.removeEventListener('scroll', unmuteOnFirstInteraction);
+    };
+
+    document.addEventListener('click', unmuteOnFirstInteraction);
+    document.addEventListener('scroll', unmuteOnFirstInteraction);
+
+    // Update UI based on initial (muted) playback state
+    bgAudio.play().then(() => {
+      updateAudioUI(true); // Show "Pause" initially, as it's playing (muted)
+    }).catch(e => {
+      console.warn("Autoplay was blocked.", e);
+      updateAudioUI(false);
+    });
+
+    bgAudio.onplay = () => updateAudioUI(true);
+    bgAudio.onpause = () => updateAudioUI(false);
+
+    // Add click listener for manual control
+    audioToggle.addEventListener('click', async () => {
+      try {
+        if (bgAudio.paused) {
+          await bgAudio.play();
+        } else {
+          bgAudio.pause();
         }
-      });
-    }
+        // Ensure sound is on if user manually plays
+        bgAudio.muted = false;
+      } catch (err) {
+        console.warn('Audio playback failed.', err);
+      }
+    });
   }
 
   // --- Scroll Animations ---

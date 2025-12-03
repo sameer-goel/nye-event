@@ -79,7 +79,7 @@
   </div>
 
   <!-- Background Music -->
-  <audio id="bgAudio" preload="auto" loop>
+  <audio id="bgAudio" preload="auto" loop autoplay muted>
     <source src="assets/media/mystical-music-bg.mp3" type="audio/mpeg">
   </audio>
   <button class="audio-toggle paused" id="audioToggle" type="button" aria-pressed="false" title="Play Music">
@@ -90,10 +90,21 @@
     </div>
     <span class="label">Play Magic</span>
   </button>
-  <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
-    <span class="dot" aria-hidden="true"></span>
-    <span class="label">Theme: Golden</span>
-  </button>
+  <div class="theme-picker" id="themePicker">
+    <button class="theme-toggle" id="themeToggle" type="button" aria-expanded="false" title="Change Theme">
+      <div class="icon-wrapper" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+        </svg>
+      </div>
+    </button>
+    <div class="theme-tray" id="themeTray">
+      <button class="theme-option" data-theme="golden" title="Golden Theme"><span class="theme-swatch"></span></button>
+      <button class="theme-option" data-theme="galactic" title="Galactic Theme"><span class="theme-swatch"></span></button>
+      <button class="theme-option" data-theme="neon" title="Neon Theme"><span class="theme-swatch"></span></button>
+      <button class="theme-option" data-theme="mystical" title="Mystical Theme"><span class="theme-swatch"></span></button>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -115,58 +126,20 @@
     </div>
   </section>
 
-  <!-- Essentials Section -->
-  <section class="section essentials">
-    <h2 class="section-title">Event Essentials</h2>
-    <div class="essentials-grid">
-      <div class="info-card">
-        <p class="eyebrow">When</p>
-        <h3>Doors 20:30 • Opening Ring 21:00</h3>
-        <ul class="info-list">
-          <li>Arrive on time so we can open the circle together.</li>
-          <li>Flow includes cacao, sound bath, ritual, and celebration through midnight.</li>
-          <li>Gentle integration space until lights-off around 01:30.</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <p class="eyebrow">Where</p>
-        <h3>Private venue • Address shared after booking</h3>
-        <p class="info-text">We keep the space intimate. Confirm your ticket to receive directions and arrival details.</p>
-        <p class="info-text">Plan extra travel time so you can settle in softly before ceremony begins.</p>
-      </div>
-      <div class="info-card">
-        <p class="eyebrow">What to bring</p>
-        <ul class="info-list">
-          <li>Comfortable layered clothing and socks for floor seating.</li>
-          <li>Refillable water bottle and a small journal for intentions.</li>
-          <li>Optional: self-arranged plant medicine; respectful, consent-first attitude.</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <p class="eyebrow">Care & Boundaries</p>
-        <ul class="info-list">
-          <li>All paths welcome—sober or with plant medicine. We hold a grounded, safe container.</li>
-          <li>Quiet decompression areas available; ask the team anytime for support.</li>
-          <li>Photography kept minimal; honor privacy and confidentiality of fellow guests.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <!-- Philosophy Section -->
   <section class="section philosophy-reveal">
-    <h2 class="section-title">A Celebration for Chosen Ones</h2>
+    <h2 class="section-title gradient-title">A Celebration for Chosen Ones</h2>
     <div class="philosophy philosophy-tiles">
-      <div class="philosophy-tile">
-        <h3 class="pop-on-scroll">Special Spiritual Energy</h3>
+      <div class="philosophy-tile pop-on-scroll">
+        <h3>Special Spiritual Energy</h3>
         <p>Tired of same old NYE events? Join us for an extraordinary evening where we honor and celebrate the unique spiritual journey of each individual. Chaos Magic embraces the beauty of diverse paths, recognizing that there is no single way to connect with the divine, the universe, or your inner self.</p>
       </div>
-      <div class="philosophy-tile">
-        <h3 class="pop-on-scroll">Gather in Ceremony</h3>
+      <div class="philosophy-tile pop-on-scroll">
+        <h3>Gather in Ceremony</h3>
         <p>This New Year's Eve, we come together to create sacred space for transformation, ritual, and celebration. Whether you practice ceremonial magic, meditation, energy work, or forge your own unique path, you are welcome here.</p>
       </div>
-      <div class="philosophy-tile">
-        <h3 class="pop-on-scroll">Quantum Jump Into 2026</h3>
+      <div class="philosophy-tile pop-on-scroll">
+        <h3>Quantum Jump Into 2026</h3>
         <p>Experience the magic of collective intention as we transition into 2026 with powerful ceremonies, healing sound bath meditation, optional plant medicine journeys, and the freedom to express your authentic spiritual self.</p>
       </div>
     </div>
@@ -174,7 +147,7 @@
 
   <!-- Timeline Section -->
   <section class="section">
-    <h2 class="section-title">Evening Timeline</h2>
+    <h2 class="section-title gradient-title">Evening Timeline</h2>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-content">
@@ -300,7 +273,7 @@
 
   <!-- Features Section -->
   <section class="section">
-    <h2 class="section-title">What's Included</h2>
+    <h2 class="section-title gradient-title">What's Included</h2>
     <p class="section-lede">Your ticket includes everything needed for a transformative evening</p>
     <div class="features">
       <div class="feature-card">
@@ -360,7 +333,7 @@
 
   <!-- Tickets Section -->
   <section class="section">
-    <h2 class="section-title">Tickets</h2>
+    <h2 class="section-title gradient-title">Tickets</h2>
     <div class="tickets-grid">
       <div class="ticket-card">
         <span class="ticket-badge">Early Bird</span>
@@ -381,9 +354,47 @@
     </div>
   </section>
 
+  <!-- Essentials Section -->
+  <section class="section essentials">
+    <h2 class="section-title gradient-title">Event Essentials</h2>
+    <div class="essentials-grid">
+      <div class="info-card">
+        <p class="eyebrow">When</p>
+        <h3>Doors 20:30 • Opening Ring 21:00</h3>
+        <ul class="info-list">
+          <li>Arrive on time so we can open the circle together.</li>
+          <li>Flow includes cacao, sound bath, ritual, and celebration through midnight.</li>
+          <li>Gentle integration space until lights-off around 01:30.</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <p class="eyebrow">Where</p>
+        <h3>Private venue • Address shared after booking</h3>
+        <p class="info-text">We keep the space intimate. Confirm your ticket to receive directions and arrival details.</p>
+        <p class="info-text">Plan extra travel time so you can settle in softly before ceremony begins.</p>
+      </div>
+      <div class="info-card">
+        <p class="eyebrow">What to bring</p>
+        <ul class="info-list">
+          <li>Comfortable layered clothing and socks for floor seating.</li>
+          <li>Refillable water bottle and a small journal for intentions.</li>
+          <li>Optional: self-arranged plant medicine; respectful, consent-first attitude.</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <p class="eyebrow">Care & Boundaries</p>
+        <ul class="info-list">
+          <li>All paths welcome—sober or with plant medicine. We hold a grounded, safe container.</li>
+          <li>Quiet decompression areas available; ask the team anytime for support.</li>
+          <li>Photography kept minimal; honor privacy and confidentiality of fellow guests.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ & Contact Section -->
   <section class="section faq-section">
-    <h2 class="section-title">FAQ & Contact</h2>
+    <h2 class="section-title gradient-title">FAQ & Contact</h2>
     <div class="faq-grid">
       <div class="faq-item">
         <p class="eyebrow">Timing</p>
