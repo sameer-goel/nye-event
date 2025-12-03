@@ -749,6 +749,82 @@ body {
   line-height: 1.6;
 }
 
+/* Essentials */
+.essentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.info-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 26px 22px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 12px;
+  color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 2px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0.8;
+}
+
+.info-card h3 {
+  font-size: 18px;
+  color: var(--text);
+}
+
+.info-text {
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.info-list li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.info-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 12px var(--glow-soft);
+}
+
 /* Quote Section */
 .quote-section {
   padding-top: 40px;
@@ -839,6 +915,54 @@ body {
 .centered-cta {
   text-align: center;
   margin-top: 28px;
+}
+
+/* FAQ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.faq-item {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.32);
+}
+
+.faq-item h3 {
+  font-size: 18px;
+  color: var(--text);
+  margin: 4px 0 8px;
+}
+
+.faq-item p {
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.contact-card {
+  border-color: var(--accent2);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.38), 0 0 22px var(--cta-shadow);
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cta-link::after {
+  content: '>';
+  font-size: 14px;
 }
 
 /* Footer */
