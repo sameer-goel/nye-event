@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaos Magic • NYE 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="golden">
+  <div class="bg-animation">
+    <div class="floating-orbs">
+      <div class="orb"></div>
+      <div class="orb"></div>
+      <div class="orb"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Logo -->
+  <div class="scroll-logo" id="scrollLogo">
+    <img src="assets/images/chaos-magic-logo.gif" alt="Chaos Magic Logo">
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgAudio" preload="auto" loop>
+    <source src="assets/media/mystical-music-bg.mp3" type="audio/mpeg">
+  </audio>
+  <button class="audio-toggle paused" id="audioToggle" type="button" aria-pressed="false" title="Play Music">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="icon-wrapper" aria-hidden="true">
+      <svg class="icon icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="icon icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </div>
+    <span class="label">Play Magic</span>
+  </button>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="label">Theme: Golden</span>
+  </button>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-top">
+      <div class="date-badge">December 31, 2025 to January 1, 2026</div>
+      <h1>Chaos Magic</h1>
+      <h2 class="magic-script">"Special Celebrations for Spiritual Souls"</h2>
+    </div>
+    
+    <div class="hero-bottom">
+      <p class="motto magic-script">"Unique Experiences of Quantum Jump"</p>
+      <a href="https://hipsy.nl/event/169257-chaos-magick-new-year-event" class="cta-button">
+        Get Your Tickets
+      </a>
+    </div>
+    
+    <div class="scroll-indicator">
+      Scroll to explore ↓
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="section philosophy-reveal">
+    <h2 class="section-title">A Celebration for Chosen Ones</h2>
+    <div class="philosophy philosophy-tiles">
+      <div class="philosophy-tile">
+        <h3 class="pop-on-scroll">Special Spiritual Energy</h3>
+        <p>Tired of same old NYE events? Join us for an extraordinary evening where we honor and celebrate the unique spiritual journey of each individual. Chaos Magic embraces the beauty of diverse paths, recognizing that there is no single way to connect with the divine, the universe, or your inner self.</p>
+      </div>
+      <div class="philosophy-tile">
+        <h3 class="pop-on-scroll">Gather in Ceremony</h3>
+        <p>This New Year's Eve, we come together to create sacred space for transformation, ritual, and celebration. Whether you practice ceremonial magic, meditation, energy work, or forge your own unique path, you are welcome here.</p>
+      </div>
+      <div class="philosophy-tile">
+        <h3 class="pop-on-scroll">Quantum Jump Into 2026</h3>
+        <p>Experience the magic of collective intention as we transition into 2026 with powerful ceremonies, healing sound bath meditation, optional plant medicine journeys, and the freedom to express your authentic spiritual self.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section">
+    <h2 class="section-title">Evening Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-time">
+            <span class="time-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            20:30 - 21:00
+          </div>
+          <div class="timeline-title">Welcome Guests</div>
+          <div class="timeline-desc">Arrival and settling into the sacred space</div>
+        </div>
+        <div class="timeline-dot logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="presentation">
+            <circle cx="32" cy="32" r="28" fill="rgba(255,255,255,0.06)" stroke="var(--accent2)" stroke-width="2" />
+            <path d="M32 12 38 24 52 26 42 36 44 50 32 43 20 50 22 36 12 26 26 24 32 12Z" fill="var(--accent)" stroke="var(--accent3)" stroke-width="2" stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-time">
+            <span class="time-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            21:00 - 22:00
+          </div>
+          <div class="timeline-title">Opening Ring Ceremony</div>
+          <div class="timeline-desc">Sacred circle formation and intention setting</div>
+        </div>
+        <div class="timeline-dot logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="presentation">
+            <circle cx="32" cy="32" r="26" fill="rgba(255,255,255,0.04)" stroke="var(--border)" stroke-width="2" />
+            <circle cx="32" cy="32" r="18" fill="none" stroke="var(--accent2)" stroke-width="6" opacity="0.8" />
+            <circle cx="32" cy="32" r="8" fill="none" stroke="var(--accent3)" stroke-width="3" />
+          </svg>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-time">
+            <span class="time-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            22:00 - 23:30
+          </div>
+          <div class="timeline-title">Party</div>
+          <div class="timeline-desc">Celebration, music, and connection</div>
+        </div>
+        <div class="timeline-dot logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="presentation">
+            <circle cx="32" cy="32" r="4" fill="var(--accent)" />
+            <g stroke-linecap="round" stroke-width="4">
+              <line x1="32" y1="10" x2="32" y2="22" stroke="var(--accent)" />
+              <line x1="32" y1="42" x2="32" y2="54" stroke="var(--accent2)" />
+              <line x1="10" y1="32" x2="22" y2="32" stroke="var(--accent3)" />
+              <line x1="42" y1="32" x2="54" y2="32" stroke="var(--accent)" />
+              <line x1="16" y1="16" x2="24" y2="24" stroke="var(--accent2)" />
+              <line x1="48" y1="16" x2="40" y2="24" stroke="var(--accent3)" />
+              <line x1="16" y1="48" x2="24" y2="40" stroke="var(--accent)" />
+              <line x1="48" y1="48" x2="40" y2="40" stroke="var(--accent2)" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-time">
+            <span class="time-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            23:30 - 00:30
+          </div>
+          <div class="timeline-title">Ritual &amp; New Year Celebration</div>
+          <div class="timeline-desc">Powerful transformative ceremony as we welcome 2026</div>
+        </div>
+        <div class="timeline-dot logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="presentation">
+            <path d="M32 8c10 12 14 21 12 30-2 10-9 16-12 16s-10-6-12-16c-2-9 2-18 12-30Z" fill="var(--accent)" opacity="0.85" />
+            <path d="M32 22c7 8 8 14 6 20-2 7-6 10-10 10s-8-3-10-10c-2-6 0-12 14-20Z" fill="var(--accent2)" opacity="0.8" />
+            <circle cx="32" cy="42" r="4" fill="var(--accent3)" />
+          </svg>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-time">
+            <span class="time-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            01:30
+          </div>
+          <div class="timeline-title">Lights Off</div>
+          <div class="timeline-desc">Gentle closing and integration</div>
+        </div>
+        <div class="timeline-dot logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="presentation">
+            <circle cx="32" cy="32" r="26" fill="rgba(255,255,255,0.04)" stroke="var(--border)" stroke-width="2" />
+            <path d="M42 12a18 18 0 1 0 0 40 16 16 0 1 1 0-40Z" fill="var(--accent2)" opacity="0.8" />
+            <circle cx="22" cy="20" r="2" fill="var(--accent3)" />
+            <circle cx="18" cy="28" r="1.5" fill="var(--accent3)" />
+            <circle cx="26" cy="14" r="1.5" fill="var(--accent3)" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <h2 class="section-title">What's Included</h2>
+    <p class="section-lede">Your ticket includes everything needed for a transformative evening</p>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.24 2 7 4.24 7 7v3.5A3.5 3.5 0 0 0 10.5 14H12v2.05c-1.68.2-3 1.6-3 3.45c0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5c0-1.85-1.32-3.25-3-3.45V14h1.5a3.5 3.5 0 0 0 3.5-3.5V7c0-2.76-2.24-5-5-5zm-3 5c0-1.66 1.34-3 3-3s3 1.34 3 3v1H9V7z"/></svg>
+        </div>
+        <h3 class="feature-title">Snacks & Refreshments</h3>
+        <p class="feature-desc">Nourishing treats to sustain your energy throughout the night.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 12c-1.3 0-2.4.84-2.82 2H7.32c-.42-1.16-1.52-2-2.82-2C3.12 12 2 13.12 2 14.5S3.12 17 4.5 17c1.3 0 2.4-.84 2.82-2h9.36c.42 1.16 1.52 2 2.82 2c1.38 0 2.5-1.12 2.5-2.5S20.88 12 19.5 12zM4.5 15c-.28 0-.5-.22-.5-.5s.22-.5.5-.5s.5.22.5.5s-.22.5-.5.5zm15 0c-.28 0-.5-.22-.5-.5s.22-.5.5-.5s.5.22.5.5s-.22.5-.5.5zM12 2C6.48 2 2 6.48 2 12h2c0-4.41 3.59-8 8-8s8 3.59 8 8h2c0-5.52-4.48-10-10-10z"/></svg>
+        </div>
+        <h3 class="feature-title">Ceremonial Cacao</h3>
+        <p class="feature-desc">Heart-opening sacred cacao ceremony to deepen connection.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55c-2.21 0-4 1.79-4 4s1.79 4 4 4s4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
+        <h3 class="feature-title">Sound Bath Meditation</h3>
+        <p class="feature-desc">Healing frequencies and vibrations for deep relaxation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.66 7.93C17.27 7.37 16.67 7 16 7s-1.27.37-1.66.93L12 12.2l-2.34-4.27C9.27 7.37 8.67 7 8 7s-1.27.37-1.66.93L2 17.27V21h20v-3.73l-4.34-9.34zM12 10.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM5 19v-1.42l2.5-4.58L10.2 18H5v1zM19 19h-5.76l-2.5-4.54L14.5 8.88l3.08 5.66L19 16.6V19z"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Plant Medicine (Optional)</h3>
+        <p class="feature-desc">Guided journey with sacred plant allies like cannabis and mushroom. (Self-arranged)</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10v1.52c-2.47.4-4.4 2.13-5.16 4.48H2v4h2.84c.76 2.35 2.69 4.08 5.16 4.48V22h4v-5.52c2.47-.4 4.4-2.13 5.16-4.48H22V8h-2.84c-.76-2.35-2.69-4.08-5.16-4.48V2zm-4 14c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/><circle cx="12" cy="12" r="2.5"/></svg>
+        </div>
+        <h3 class="feature-title">Transformative Rituals</h3>
+        <p class="feature-desc">Powerful ceremonies to release the old and welcome the new.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l.94 2.01.06.13 2.22.32-1.61 1.57-.1.1.02.14.38 2.21-1.98-1.04-.12-.06-.12.06-1.98 1.04.38-2.21.02-.14-.1-.1-1.61-1.57 2.22-.32.06-.13L12 2.69M12 0L9.19 6.36 2 7.27l5.22 5.09L5.96 20 12 16.64 18.04 20l-1.26-7.64L22 7.27l-7.19-.91L12 0z"/></svg>
+        </div>
+        <h3 class="feature-title">All-Inclusive Experience</h3>
+        <p class="feature-desc">Everything you need for a magical evening of transformation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="section quote-section" id="quote-stop">
+    <div class="quote-card">
+      <p class="quote-text">"Quantum Jump into New Reality"</p>
+      <p class="quote-sub">Embrace the freedom to forge your own magical path of 2026</p>
+    </div>
+  </section>
+
+  <!-- Tickets Section -->
+  <section class="section">
+    <h2 class="section-title">Tickets</h2>
+    <div class="tickets-grid">
+      <div class="ticket-card">
+        <span class="ticket-badge">Early Bird</span>
+        <div class="ticket-title">Till 12th Dec</div>
+        <div class="ticket-price">€ 55,00</div>
+        <p class="ticket-note">Lock in your spot early for our intimate gathering.</p>
+      </div>
+      <div class="ticket-card">
+        <span class="ticket-badge">Regular</span>
+        <div class="ticket-title">Till 22nd Dec</div>
+        <div class="ticket-price">€ 75,00</div>
+        <p class="ticket-note">Final wave of tickets before booking closes.</p>
+      </div>
+    </div>
+    <p class="tickets-lede">Booking closes on 22nd. Small group event, don’t miss your spot.</p>
+    <div class="centered-cta">
+      <a href="https://hipsy.nl/event/169257-chaos-magick-new-year-event" class="cta-button">Get Tickets</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-cta">
+      <a href="https://hipsy.nl/event/169257-chaos-magick-new-year-event" class="cta-button">
+        Secure Your Spot
+      </a>
+    </div>
+    <p>Chaos Magic New Year 2026</p>
+    <p>Made with ❤️ for seekers of magic</p>
+    <p>© 2025 Chaos Magic Events. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
