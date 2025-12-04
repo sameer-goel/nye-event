@@ -65,10 +65,15 @@
     <source src="assets/media/mystical-music-bg.mp3" type="audio/mpeg">
   </audio>
   <button class="audio-toggle paused" id="audioToggle" type="button" aria-pressed="false" title="Play Music">
-    <span class="dot" aria-hidden="true"></span>
+    <span class="mini-eq" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </span>
     <div class="icon-wrapper" aria-hidden="true">
       <svg class="icon icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      <svg class="icon icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      <svg class="icon icon-pause" viewBox="0 0 24 24" fill="currentColor">
+        <rect x="5" y="4" width="5" height="16" rx="1.5"></rect>
+        <rect x="14" y="4" width="5" height="16" rx="1.5"></rect>
+      </svg>
     </div>
     <span class="label">Sound</span>
   </button>
@@ -365,29 +370,49 @@
     <div class="features">
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.24 2 7 4.24 7 7v3.5A3.5 3.5 0 0 0 10.5 14H12v2.05c-1.68.2-3 1.6-3 3.45c0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5c0-1.85-1.32-3.25-3-3.45V14h1.5a3.5 3.5 0 0 0 3.5-3.5V7c0-2.76-2.24-5-5-5zm-3 5c0-1.66 1.34-3 3-3s3 1.34 3 3v1H9V7z"/></svg>
+          <svg class="steam-bowl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 40h32a14 14 0 0 1-14 12h-4A14 14 0 0 1 16 40Z" fill="rgba(255,255,255,0.08)"/>
+            <path d="M22 28c0-2 2-3 2-5s-2-3-2-5" class="steam-line"/>
+            <path d="M32 26c0-2 2-3 2-5s-2-3-2-5" class="steam-line"/>
+            <path d="M42 28c0-2 2-3 2-5s-2-3-2-5" class="steam-line"/>
+            <path d="M12 40h40" />
+          </svg>
         </div>
         <h3 class="feature-title">Heart Warming Dinner</h3>
         <p class="feature-desc">Nourishing treats to sustain energy through the night.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 12c-1.3 0-2.4.84-2.82 2H7.32c-.42-1.16-1.52-2-2.82-2C3.12 12 2 13.12 2 14.5S3.12 17 4.5 17c1.3 0 2.4-.84 2.82-2h9.36c.42 1.16 1.52 2 2.82 2c1.38 0 2.5-1.12 2.5-2.5S20.88 12 19.5 12zM4.5 15c-.28 0-.5-.22-.5-.5s.22-.5.5-.5s.5.22.5.5s-.22.5-.5.5zm15 0c-.28 0-.5-.22-.5-.5s.22-.5.5-.5s.5.22.5.5s-.22.5-.5.5zM12 2C6.48 2 2 6.48 2 12h2c0-4.41 3.59-8 8-8s8 3.59 8 8h2c0-5.52-4.48-10-10-10z"/></svg>
+          <svg class="steam-mug" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 24h22a2 2 0 0 1 2 2v14a10 10 0 0 1-10 10H24a10 10 0 0 1-10-10V26a2 2 0 0 1 2-2Z" fill="rgba(255,255,255,0.08)"/>
+            <path d="M42 30h6a6 6 0 0 1 0 12h-6" />
+            <path d="M26 34c2-3 6-3 8 0" />
+            <path d="M24 20c0-3 3-4 3-7" class="steam-line"/>
+            <path d="M32 18c0-3 3-4 3-7" class="steam-line"/>
+          </svg>
         </div>
         <h3 class="feature-title">Ceremonial Cacao</h3>
         <p class="feature-desc">Heart-opening real Peruvian cacao ceremony to deepen connection.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55c-2.21 0-4 1.79-4 4s1.79 4 4 4s4-1.79 4-4V7h4V3h-6z"/></svg>
+          <svg class="singing-bowl" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 32h30a12 12 0 0 1-12 12h-6A12 12 0 0 1 10 32Z" fill="rgba(255,255,255,0.08)"/>
+            <path d="M40 18h10" />
+            <path d="M48 14h6v8h-6z" fill="rgba(255,255,255,0.1)" />
+            <path d="M48 18l-6 6" />
+          </svg>
         </div>
         <h3 class="feature-title">Sound Bath Meditation</h3>
         <p class="feature-desc">Healing frequencies and vibrations for deep relaxation.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.66 7.93C17.27 7.37 16.67 7 16 7s-1.27.37-1.66.93L12 12.2l-2.34-4.27C9.27 7.37 8.67 7 8 7s-1.27.37-1.66.93L2 17.27V21h20v-3.73l-4.34-9.34zM12 10.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM5 19v-1.42l2.5-4.58L10.2 18H5v1zM19 19h-5.76l-2.5-4.54L14.5 8.88l3.08 5.66L19 16.6V19z"/>
+          <svg class="leaf-sway" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 10c10 6 16 16 14 28-2 12-10 16-14 16s-12-4-14-16C16 26 22 16 32 10Z" fill="rgba(255,255,255,0.08)"/>
+            <path d="M32 18c4 8 2 20-4 26" />
+            <path d="M32 26c3-1 6-1 9 1" />
+            <path d="M30 34c-2 1-5 2-8 2" />
           </svg>
         </div>
         <h3 class="feature-title">Plant Medicine (Optional)</h3>
@@ -395,14 +420,21 @@
       </div>
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10v1.52c-2.47.4-4.4 2.13-5.16 4.48H2v4h2.84c.76 2.35 2.69 4.08 5.16 4.48V22h4v-5.52c2.47-.4 4.4-2.13 5.16-4.48H22V8h-2.84c-.76-2.35-2.69-4.08-5.16-4.48V2zm-4 14c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/><circle cx="12" cy="12" r="2.5"/></svg>
+          <svg class="alchemy-spin" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="32" r="20" opacity="0.6"/>
+            <path d="M32 14 48 44H16Z" fill="rgba(255,255,255,0.08)"/>
+            <circle cx="32" cy="32" r="3" />
+          </svg>
         </div>
         <h3 class="feature-title">Transformative Rituals</h3>
         <p class="feature-desc">Powerful ceremonies to release the old and welcome the new.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l.94 2.01.06.13 2.22.32-1.61 1.57-.1.1.02.14.38 2.21-1.98-1.04-.12-.06-.12.06-1.98 1.04.38-2.21.02-.14-.1-.1-1.61-1.57 2.22-.32.06-.13L12 2.69M12 0L9.19 6.36 2 7.27l5.22 5.09L5.96 20 12 16.64 18.04 20l-1.26-7.64L22 7.27l-7.19-.91L12 0z"/></svg>
+          <svg class="badge-pulse" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="32" r="18" fill="rgba(255,255,255,0.08)" />
+            <path d="M32 18 35 27h9l-7 5 3 9-8-5-8 5 3-9-7-5h9z" fill="currentColor" stroke="none" />
+          </svg>
         </div>
         <h3 class="feature-title">All-Inclusive Experience</h3>
         <p class="feature-desc">Everything you need for a magical evening of transformation.</p>

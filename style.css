@@ -790,6 +790,104 @@ body[data-theme="mystical"] .gradient-title {
   height: 32px;
 }
 
+.feature-icon svg * {
+  transition: filter 0.3s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Feature icon micro-animations */
+.steam-bowl,
+.steam-mug,
+.leaf-sway {
+  animation: iconFloat 6s ease-in-out infinite;
+}
+
+.steam-bowl .steam-line,
+.steam-mug .steam-line {
+  animation: steamRise 2.8s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+.steam-bowl .steam-line:nth-of-type(2) { animation-delay: 0s; }
+.steam-bowl .steam-line:nth-of-type(3) { animation-delay: 0.35s; }
+.steam-bowl .steam-line:nth-of-type(4) { animation-delay: 0.7s; }
+
+.steam-mug .steam-line:nth-of-type(4) { animation-delay: 0s; }
+.steam-mug .steam-line:nth-of-type(5) { animation-delay: 0.35s; }
+
+.singing-bowl path:first-of-type {
+  animation: bowlHum 3.4s ease-in-out infinite;
+}
+
+.singing-bowl path:nth-of-type(2),
+.singing-bowl path:nth-of-type(3),
+.singing-bowl path:nth-of-type(4) {
+  animation: malletSwing 2.6s ease-in-out infinite;
+  transform-origin: 50% 32%;
+}
+
+.leaf-sway {
+  animation: leafSway 5.5s ease-in-out infinite;
+}
+
+.alchemy-spin {
+  animation: alchemySpin 6.5s linear infinite;
+}
+
+.badge-pulse {
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+.badge-pulse circle {
+  animation: badgeHalo 3s ease-in-out infinite;
+}
+
+.feature-icon:hover svg * {
+  filter: drop-shadow(0 0 10px var(--glow-alt));
+}
+
+@keyframes steamRise {
+  0% { transform: translateY(6px) scale(0.9); opacity: 0.2; }
+  40% { opacity: 0.8; }
+  100% { transform: translateY(-10px) scale(1.05); opacity: 0; }
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes bowlHum {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); filter: drop-shadow(0 0 6px var(--glow-soft)); }
+}
+
+@keyframes malletSwing {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes alchemySpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes badgeHalo {
+  0%, 100% { filter: drop-shadow(0 0 6px var(--glow-alt)); }
+  50% { filter: drop-shadow(0 0 14px var(--glow-strong)); }
+}
+
 .feature-title {
   font-size: 20px;
   font-weight: 600;
@@ -1017,6 +1115,38 @@ body[data-theme="mystical"] .gradient-title {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
+
+
+.mini-eq {
+  display: inline-flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 14px;
+}
+
+.mini-eq span {
+  display: block;
+  width: 3px;
+  border-radius: 1px;
+  background: var(--accent2);
+  box-shadow: 0 0 8px var(--accent2);
+  animation: eqPulse 1s ease-in-out infinite;
+}
+
+.mini-eq span:nth-child(1) { height: 7px; animation-delay: 0s; }
+.mini-eq span:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+.mini-eq span:nth-child(3) { height: 9px; animation-delay: 0.3s; }
+
+.audio-toggle.paused .mini-eq span {
+  animation-play-state: paused;
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+@keyframes eqPulse {
+  0%, 100% { transform: scaleY(0.7); }
+  50% { transform: scaleY(1.2); }
+}
 .audio-toggle {
   bottom: 22px;
 }
@@ -1151,19 +1281,17 @@ body[data-theme="mystical"] .gradient-title {
   transform: scale(0.7);
 }
 
-.audio-toggle .dot,
-.theme-toggle .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--accent2);
-  box-shadow: 0 0 10px var(--accent2);
-  transition: background 0.2s ease, box-shadow 0.2s ease;
+
+
+.audio-toggle.glow {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.12), 0 0 20px var(--cta-shadow);
+  animation: pulseGlow 2s ease-in-out infinite;
 }
 
-.audio-toggle.paused .dot {
-  background: var(--border);
-  box-shadow: none;
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.12), 0 0 20px var(--cta-shadow); transform: translateY(0); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); transform: translateY(-1px); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.12), 0 0 20px var(--cta-shadow); transform: translateY(0); }
 }
 
 .info-card,

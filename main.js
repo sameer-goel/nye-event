@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setupAudio() {
     if (!audioToggle || !bgAudio) return;
+    audioToggle.classList.add('glow');
 
     bgAudio.onplay = () => updateAudioUI(true);
     bgAudio.onpause = () => updateAudioUI(false);
@@ -131,11 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollLogo.style.opacity = opacity;
       scrollLogo.style.transform = `translate(-50%, -50%) rotate(${rotation}deg) scale(${scale})`;
     }
-
-    if (audioToggle) {
-      audioToggle.classList.toggle('floaty', beyondHero);
-      audioToggle.classList.toggle('inline', !beyondHero);
-    }
+    
 
     // Logo glow effect
     scrollLogo.classList.add('glowing');
