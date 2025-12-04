@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
       }
     })();
-    applyTheme(savedTheme || 'golden');
+    applyTheme(savedTheme || 'neon');
 
     if (themePicker && themeToggle) {
       // Toggle the tray
@@ -83,29 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupAudio() {
     if (!audioToggle || !bgAudio) return;
 
-    // Autoplay is handled by `autoplay` and `muted` attributes in HTML.
-    // We just need to handle unmuting on first interaction.
-    const unmuteOnFirstInteraction = () => {
-      if (bgAudio.muted) {
-        bgAudio.muted = false;
-        updateAudioUI(!bgAudio.paused);
-      }
-      // Remove this listener so it only runs once.
-      document.removeEventListener('click', unmuteOnFirstInteraction);
-      document.removeEventListener('scroll', unmuteOnFirstInteraction);
-    };
-
-    document.addEventListener('click', unmuteOnFirstInteraction);
-    document.addEventListener('scroll', unmuteOnFirstInteraction);
-
-    // Update UI based on initial (muted) playback state
-    bgAudio.play().then(() => {
-      updateAudioUI(true); // Show "Pause" initially, as it's playing (muted)
-    }).catch(e => {
-      console.warn("Autoplay was blocked.", e);
-      updateAudioUI(false);
-    });
-
     bgAudio.onplay = () => updateAudioUI(true);
     bgAudio.onpause = () => updateAudioUI(false);
 
@@ -113,16 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
     audioToggle.addEventListener('click', async () => {
       try {
         if (bgAudio.paused) {
+          bgAudio.muted = false;
           await bgAudio.play();
         } else {
           bgAudio.pause();
         }
-        // Ensure sound is on if user manually plays
-        bgAudio.muted = false;
       } catch (err) {
         console.warn('Audio playback failed.', err);
       }
     });
+
+    // Start with explicit paused UI
+    updateAudioUI(false);
   }
 
   // --- Scroll Animations ---
@@ -130,13 +109,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollY = window.scrollY;
     const scrollDelta = scrollY - lastScrollY;
     const heroHeight = window.innerHeight;
+    const beyondHero = scrollY > heroHeight * 0.95;
+    const nearBottom = window.innerHeight + scrollY >= document.body.scrollHeight - 20;
     const quoteStopY = quoteStop ? quoteStop.offsetTop + quoteStop.offsetHeight / 2 : Infinity;
     const freezeLogo = scrollY + window.innerHeight / 2 >= quoteStopY;
 
-    // Logo rotation
+    // Logo rotation and scaling/opacity by scroll position
     if (!freezeLogo) {
       rotation += scrollDelta * 0.5;
-      scrollLogo.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+    }
+    if (scrollLogo) {
+      let scale = 1;
+      let opacity = 1;
+      if (nearBottom) {
+        scale = 2;
+        opacity = 1;
+      } else if (beyondHero) {
+        scale = 0.5;
+        opacity = 0.5;
+      }
+      scrollLogo.style.opacity = opacity;
+      scrollLogo.style.transform = `translate(-50%, -50%) rotate(${rotation}deg) scale(${scale})`;
+    }
+
+    if (audioToggle) {
+      audioToggle.classList.toggle('floaty', beyondHero);
+      audioToggle.classList.toggle('inline', !beyondHero);
     }
 
     // Logo glow effect
@@ -144,18 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
     clearTimeout(glowTimeout);
     glowTimeout = setTimeout(() => scrollLogo.classList.remove('glowing'), 300);
 
-    // Parallax for hero and section elements
-    if (scrollY > heroHeight * 0.5) {
-      if (heroTop) heroTop.style.transform = `translateX(-50%) translateY(-${scrollY * 0.3}px)`;
-      if (heroBottom) heroBottom.style.transform = `translateX(-50%) translateY(${scrollY * 0.3}px)`;
-      sections.forEach(section => {
-        section.style.transform = `translateY(-${(scrollY - heroHeight * 0.5) * 0.2}px)`;
-      });
-    } else {
-      if (heroTop) heroTop.style.transform = 'translateX(-50%) translateY(0)';
-      if (heroBottom) heroBottom.style.transform = 'translateX(-50%) translateY(0)';
-      sections.forEach(section => section.style.transform = 'translateY(0)');
-    }
+    // Parallax disabled for hero/sections to avoid layout gaps
+    sections.forEach(section => section.style.transform = 'translateY(0)');
 
     // Animate timeline items on scroll
     timelineItems.forEach((item, index) => {
