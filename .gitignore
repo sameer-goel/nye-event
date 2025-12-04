@@ -7,3 +7,6 @@
 
 # Logs
 *.log
+
+# Local content source (do not commit)
+CONTENT.md
