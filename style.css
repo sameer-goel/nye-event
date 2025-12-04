@@ -915,6 +915,13 @@ body[data-theme="mystical"] .gradient-title {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
+.price-highlight {
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px var(--glow-strong);
+}
+
 .quote-text {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.4rem, 5vw, 3.4rem);
