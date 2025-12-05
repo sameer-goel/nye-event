@@ -217,8 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
       countdownEl.classList.toggle('countdown-closed', isClosed);
       if (countdownStatus) {
         countdownStatus.textContent = isClosed
-          ? 'Ticket sales are now closed.'
-          : 'Ticket sales close on 20 Dec 2025 (23:59 CET).';
+          ? 'The circle is now closed.'
+          : 'Portal closes 20 Dec 2025 (23:59 CET).';
       }
     };
 
