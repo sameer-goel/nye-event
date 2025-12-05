@@ -408,6 +408,84 @@ body {
   60% { transform: translateX(-50%) translateY(-5px); }
 }
 
+/* Ticket Deadline */
+.ticket-deadline {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
+.deadline-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 24px 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.deadline-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.deadline-date {
+  font-size: 1.1rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(80px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.count-segment {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.count-number {
+  display: block;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.count-label {
+  display: block;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.deadline-note {
+  margin-top: 14px;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.countdown.countdown-closed .count-number {
+  color: var(--text-dim);
+}
+
+@media (max-width: 640px) {
+  .countdown {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+}
+
 /* Content Sections */
 .section {
   padding: 100px 20px;

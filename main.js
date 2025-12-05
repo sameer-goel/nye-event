@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const timelineItems = document.querySelectorAll('.timeline-item');
   const popItems = document.querySelectorAll('.pop-on-scroll');
   const philosophyBlock = document.querySelector('.philosophy-reveal');
+  const countdownEl = document.getElementById('ticketCountdown');
+  const countdownStatus = document.getElementById('ticketCountdownStatus');
 
   // --- State Variables ---
   let rotation = 0;
@@ -182,10 +184,53 @@ document.addEventListener('DOMContentLoaded', () => {
     popItems.forEach(el => observer.observe(el));
   }
 
+  // --- Ticket Countdown ---
+  function setupCountdown() {
+    if (!countdownEl) return;
+    const cutoff = new Date('2025-12-20T23:59:59+01:00');
+    const segments = {
+      days: countdownEl.querySelector('[data-unit="days"]'),
+      hours: countdownEl.querySelector('[data-unit="hours"]'),
+      minutes: countdownEl.querySelector('[data-unit="minutes"]'),
+      seconds: countdownEl.querySelector('[data-unit="seconds"]'),
+    };
+
+    const pad2 = (value) => String(value).padStart(2, '0');
+
+    const render = () => {
+      const now = new Date();
+      const diff = cutoff - now;
+      const isClosed = diff <= 0;
+      const remaining = Math.max(0, diff);
+      const totalSeconds = Math.floor(remaining / 1000);
+
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      if (segments.days) segments.days.textContent = Math.max(days, 0);
+      if (segments.hours) segments.hours.textContent = pad2(Math.max(hours, 0));
+      if (segments.minutes) segments.minutes.textContent = pad2(Math.max(minutes, 0));
+      if (segments.seconds) segments.seconds.textContent = pad2(Math.max(seconds, 0));
+
+      countdownEl.classList.toggle('countdown-closed', isClosed);
+      if (countdownStatus) {
+        countdownStatus.textContent = isClosed
+          ? 'Ticket sales are now closed.'
+          : 'Ticket sales close on 20 Dec 2025 (23:59 CET).';
+      }
+    };
+
+    render();
+    setInterval(render, 1000);
+  }
+
   // --- Initialization ---
   setupTheme();
   setupAudio();
   setupPopReveal();
+  setupCountdown();
   if (philosophyBlock) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
